@@ -11,7 +11,7 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	# horizontal movement processing (left, right)
 	horizontal_mvt()
-	#applies movement
+	#applies movementt
 	move_and_slide() 
 
 func horizontal_mvt() :
