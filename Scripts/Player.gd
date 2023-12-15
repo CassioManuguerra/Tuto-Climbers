@@ -33,11 +33,13 @@ func player_animations():
 	if Input.is_action_pressed("ui_left") || Input.is_action_just_released("ui_jump"):
 		$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.play("run")
+		$CollisionShape2D.position.x = 8.5
 
 	#on right (add is_action_just_released so you continue running after jumping)
 	if Input.is_action_pressed("ui_right") || Input.is_action_just_released("ui_jump"):
 		$AnimatedSprite2D.flip_h = false
 		$AnimatedSprite2D.play("run")
+		$CollisionShape2D.position.x = -8.5
 	
 	#on idle
 	if !Input.is_anything_pressed():
@@ -52,7 +54,7 @@ func _input(event):
 		$AnimatedSprite2D.play("attack")
 		
 	#on jump
-	if event.is_action_pressed("ui_jump") and not is_on_floor():
+	if event.is_action_pressed("ui_jump") and is_on_floor():
 		velocity.y = jump_height
 		$AnimatedSprite2D.play("jump")
 		
