@@ -3,7 +3,6 @@ extends CharacterBody2D
 #player movement variables
 @export var speed = 100
 @export var gravity = 200
-@export var jump_height = Global.jump_height
 
 
 #movement and physics
@@ -13,7 +12,6 @@ func _physics_process(delta):
 		$AnimatedSprite2D.flip_h = false
 	if Input.is_action_pressed("ui_left"):
 		$AnimatedSprite2D.flip_h = true
-		
 	# vertical movement velocity (down)
 	velocity.y += gravity * delta
 	# horizontal movement processing (left, right)
@@ -53,7 +51,7 @@ func _input(event):
 	#on jump
 	if event.is_action_pressed("ui_jump") and is_on_floor():
 		Global.is_jumping = true
-		velocity.y = jump_height
+		velocity.y = Global.jump_height
 		$AnimatedSprite2D.play("jump")
 		
 	#on climb
