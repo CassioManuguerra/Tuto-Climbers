@@ -2027,7 +2027,7 @@ layer_0/tile_data = PackedInt32Array(65537, 262144, 4, 131073, 262144, 5, 65538,
 
 [node name="Player" parent="." instance=ExtResource("4_1wvua")]
 z_index = 10
-position = Vector2(524, 496)
+position = Vector2(53, 608)
 
 [node name="Level" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_j7los")
