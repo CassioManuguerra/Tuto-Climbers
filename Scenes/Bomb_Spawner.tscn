@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://wkrtrbiitwrd"]
+
+[ext_resource type="Texture2D" uid="uid://chcj1yvbhw63d" path="res://Assets/Kings and Pigs/Sprites/10-Cannon/Shoot (44x28).png" id="1_t1id2"]
+[ext_resource type="Texture2D" uid="uid://01kyoh03sgx3" path="res://Assets/Kings and Pigs/Sprites/10-Cannon/Idle.png" id="2_4l06y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwxte"]
+atlas = ExtResource("1_t1id2")
+region = Rect2(0, 0, 44, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vay7p"]
+atlas = ExtResource("1_t1id2")
+region = Rect2(44, 0, 44, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trrfp"]
+atlas = ExtResource("1_t1id2")
+region = Rect2(88, 0, 44, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kgq4"]
+atlas = ExtResource("1_t1id2")
+region = Rect2(132, 0, 44, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfwg3"]
+atlas = ExtResource("1_t1id2")
+region = Rect2(0, 0, 44, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7xyw"]
+atlas = ExtResource("2_4l06y")
+region = Rect2(0, 0, 44, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sowcp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwxte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vay7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trrfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kgq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfwg3")
+}],
+"loop": false,
+"name": &"cannon_fired",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7xyw")
+}],
+"loop": true,
+"name": &"cannon_idle",
+"speed": 5.0
+}]
+
+[node name="Bomb_Spawner" type="Node2D"]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sowcp")
+animation = &"cannon_fired"
+autoplay = "cannon_idle"
+frame = 4
+frame_progress = 1.0
+flip_h = true
