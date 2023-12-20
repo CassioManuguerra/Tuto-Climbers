@@ -2114,8 +2114,8 @@ layer_2/tile_data = PackedInt32Array(0, 393216, 16, 65536, 458752, 17, 131072, 4
 [node name="Walls" type="Node2D" parent="."]
 
 [node name="Wall" parent="Walls" instance=ExtResource("7_e4j8g")]
-position = Vector2(1, 41.9999)
-scale = Vector2(1.55, 6.7)
+position = Vector2(1, 79)
+scale = Vector2(1.55, 6)
 
 [node name="Wall2" parent="Walls" instance=ExtResource("7_e4j8g")]
 position = Vector2(1151, 47)
@@ -2130,7 +2130,7 @@ position = Vector2(49, 66)
 curve = SubResource("Curve2D_a30i1")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Bomb_Path/Path2D"]
-position = Vector2(3, 637)
+position = Vector2(3.00159, 637)
 rotation = 3.13125
 progress = 2903.79
 

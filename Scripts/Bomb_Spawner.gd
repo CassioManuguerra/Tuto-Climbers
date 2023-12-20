@@ -4,6 +4,7 @@ var bomb = preload("res://Scenes/Bomb.tscn")
 var current_scene_path
 var bomb_animation
 var bomb_path
+@onready var timer = $Timer
 
 func _ready():
 	#default animation on load
@@ -13,6 +14,7 @@ func _ready():
 	bomb_path = get_node(current_scene_path + "/Bomb_Path/Path2D/PathFollow2D") #PathFollow2D
 	bomb_animation = get_node(current_scene_path + "/Bomb_Path/Path2D/AnimationPlayer") #AnimationPlayer
 	Global.is_bomb_moving = true
+	timer.start()
 
 	
 func shoot():
@@ -32,10 +34,14 @@ func _on_timer_timeout():
 	#spawns a bomb onto our path if there are no bombs available
 	if bomb_path.get_child_count() <= 0:
 		bomb_path.add_child(shoot())
+	timer.start()
 	
 	
 func _process(delta):
-	# Clear all existing bombs  
+	#freeze bomb
+	if Global.freezeBomb :
+		bomb_animation.pause()
+	# Clear all existing bombs 
 	if Global.is_bomb_moving == false and Global.bomb_finished_exploding:
 		for bombs in bomb_path.get_children():
 			bomb_path.remove_child(bombs)

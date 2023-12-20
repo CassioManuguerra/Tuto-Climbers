@@ -2113,7 +2113,7 @@ position = Vector2(87, -19)
 curve = SubResource("Curve2D_qrb1y")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Bomb_Path/Path2D"]
-position = Vector2(345.914, 119.96)
+position = Vector2(345.915, 119.957)
 rotation = -1.24718
 progress = 2371.96
 
