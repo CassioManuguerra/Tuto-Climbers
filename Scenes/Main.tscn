@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bri1irxwhnjv5"]
+[gd_scene load_steps=14 format=3 uid="uid://bri1irxwhnjv5"]
 
 [ext_resource type="PackedScene" uid="uid://cpugotsyfmb2f" path="res://Scenes/Player.tscn" id="1_w6akj"]
 [ext_resource type="PackedScene" uid="uid://bqvx5rpgpvhbh" path="res://Scenes/Ladder.tscn" id="1_xu81t"]
 [ext_resource type="Texture2D" uid="uid://1bdvd6pt2ktd" path="res://Assets/Kings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="2_n8u0f"]
 [ext_resource type="Texture2D" uid="uid://sufk471liay6" path="res://Assets/Kings and Pigs/Sprites/14-TileSets/Decorations (32x32).png" id="2_pgeyn"]
 [ext_resource type="Texture2D" uid="uid://cdlfy5k0mj2ja" path="res://Assets/Font/BigShip.png" id="2_uwnr6"]
+[ext_resource type="PackedScene" uid="uid://wkrtrbiitwrd" path="res://Scenes/Bomb_Spawner.tscn" id="7_bp0j2"]
 [ext_resource type="PackedScene" uid="uid://chulc4uboihbs" path="res://Scenes/Wall.tscn" id="7_e4j8g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cy03r"]
@@ -2024,7 +2025,7 @@ point_count = 37
 
 [sub_resource type="Animation" id="Animation_2hv5r"]
 resource_name = "bomb_movement"
-length = 5.0
+length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2032,7 +2033,7 @@ tracks/0/path = NodePath("PathFollow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
+"times": PackedFloat32Array(0, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -2119,6 +2120,9 @@ scale = Vector2(1.55, 6.7)
 [node name="Wall2" parent="Walls" instance=ExtResource("7_e4j8g")]
 position = Vector2(1151, 47)
 scale = Vector2(1.55, 6.7)
+
+[node name="Bomb_Spawner" parent="." instance=ExtResource("7_bp0j2")]
+position = Vector2(49, 66)
 
 [node name="Bomb_Path" type="Node2D" parent="."]
 

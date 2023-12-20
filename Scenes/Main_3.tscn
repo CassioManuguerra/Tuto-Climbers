@@ -2162,8 +2162,9 @@ wait_time_at_right = 1.0
 curve = SubResource("Curve2D_neaux")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Bomb_Path/Path2D"]
-position = Vector2(201, 201)
-rotation = 0.00151515
+position = Vector2(2, 636)
+rotation = 3.13904
+progress = 3369.13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bomb_Path/Path2D"]
 root_node = NodePath("../..")

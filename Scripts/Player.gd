@@ -4,9 +4,15 @@ extends CharacterBody2D
 @export var speed = 100
 @export var gravity = 200
 
+var double_jump = true
+
 
 #movement and physics
 func _physics_process(delta):
+	#reset double
+	if is_on_floor():
+		double_jump = true
+	
 	#handle flip
 	if Input.is_action_pressed("ui_right"):
 		$AnimatedSprite2D.flip_h = false
@@ -51,6 +57,12 @@ func _input(event):
 	#on jump
 	if event.is_action_pressed("ui_jump") and is_on_floor():
 		Global.is_jumping = true
+		velocity.y = Global.jump_height
+		$AnimatedSprite2D.play("jump")
+	
+	if event.is_action_pressed("ui_jump") and not is_on_floor() and double_jump:
+		Global.is_jumping = true
+		double_jump = false
 		velocity.y = Global.jump_height
 		$AnimatedSprite2D.play("jump")
 		
