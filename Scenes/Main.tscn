@@ -2066,7 +2066,7 @@ texture = ExtResource("2_uwnr6")
 
 [node name="Player" parent="." instance=ExtResource("1_w6akj")]
 z_index = 10
-position = Vector2(35, 620)
+position = Vector2(1029, 615)
 
 [node name="Ladders" type="Node2D" parent="."]
 

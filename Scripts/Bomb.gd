@@ -12,13 +12,13 @@ func _ready():
 	
 
 func _on_body_entered(body):
-	if body.name == "Player":
+	if body.name == "Player" and Global.bomb_finished_exploding:
 		Global.bomb_finished_exploding = false
 		Global.freezeBomb = true
 		bomb.play("explode")
 		timer.start()
 		Global.is_bomb_moving = false
-	if body.name == "Wall" && prevented_first_explosion:
+	if body.name == "Wall" && prevented_first_explosion && Global.bomb_finished_exploding:
 		Global.bomb_finished_exploding = false
 		Global.freezeBomb = true
 		bomb.play("explode")

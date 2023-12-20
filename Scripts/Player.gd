@@ -25,7 +25,7 @@ func _physics_process(delta):
 	#applies movement
 	move_and_slide() 
 	
-	if (not Global.is_attacking) && (not Global.is_jumping) && !Global.is_climbing:
+	if (not Global.is_attacking) && (not Global.is_jumping) && not Input.is_action_pressed("ui_up"):
 		player_animations()
 
 func horizontal_mvt() :
@@ -55,7 +55,7 @@ func _input(event):
 		$AnimatedSprite2D.play("attack")
 		
 	#on jump
-	if event.is_action_pressed("ui_jump") and is_on_floor():
+	if event.is_action_pressed("ui_jump") and is_on_floor() and not Global.is_climbing:
 		Global.is_jumping = true
 		velocity.y = Global.jump_height
 		$AnimatedSprite2D.play("jump")
