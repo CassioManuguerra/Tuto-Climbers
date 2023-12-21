@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bri1irxwhnjv5"]
+[gd_scene load_steps=15 format=3 uid="uid://bri1irxwhnjv5"]
 
 [ext_resource type="PackedScene" uid="uid://cpugotsyfmb2f" path="res://Scenes/Player.tscn" id="1_w6akj"]
 [ext_resource type="PackedScene" uid="uid://bqvx5rpgpvhbh" path="res://Scenes/Ladder.tscn" id="1_xu81t"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cdlfy5k0mj2ja" path="res://Assets/Font/BigShip.png" id="2_uwnr6"]
 [ext_resource type="PackedScene" uid="uid://wkrtrbiitwrd" path="res://Scenes/Bomb_Spawner.tscn" id="7_bp0j2"]
 [ext_resource type="PackedScene" uid="uid://chulc4uboihbs" path="res://Scenes/Wall.tscn" id="7_e4j8g"]
+[ext_resource type="PackedScene" uid="uid://ouu0hjcbmstu" path="res://Scenes/Cannon_Handler.tscn" id="8_crl1f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cy03r"]
 texture = ExtResource("2_n8u0f")
@@ -2019,7 +2020,7 @@ sources/1 = SubResource("TileSetAtlasSource_mptxw")
 
 [sub_resource type="Curve2D" id="Curve2D_a30i1"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 62, 64, 0, 0, 0, 0, 140, 70, 0, 0, 0, 0, 144, 282, 0, 0, 0, 0, 214, 281, 0, 0, 0, 0, 215, 266, 0, 0, 0, 0, 301, 267, 0, 0, 0, 0, 301, 286, 0, 0, 0, 0, 434, 282, 0, 0, 0, 0, 432, 446, 0, 0, 0, 0, 584, 444, 0, 0, 0, 0, 610, 416, 0, 0, 0, 0, 641, 406, 0, 0, 0, 0, 670, 408, 0, 0, 0, 0, 696, 437, 0, 0, 0, 0, 794, 442, 0, 0, 0, 0, 795, 425, 0, 0, 0, 0, 841, 426, 0, 0, 0, 0, 843, 410, 0, 0, 0, 0, 893, 411, 0, 0, 0, 0, 893, 395, 0, 0, 0, 0, 926, 394, 0, 0, 0, 0, 950, 369, 0, 0, 0, 0, 983, 378, 0, 0, 0, 0, 1010, 379, 0, 0, 0, 0, 1064, 398, 0, 0, 0, 0, 1101, 425, 0, 0, 0, 0, 1124, 471, 0, 0, 0, 0, 1034, 473, 0, 0, 0, 0, 1034, 554, 0, 0, 0, 0, 724, 555, 0, 0, 0, 0, 697, 534, 0, 0, 0, 0, 669, 555, 0, 0, 0, 0, 338, 556, 0, 0, 0, 0, 314, 538, 0, 0, 0, 0, 290, 557, 0, 0, 0, 0, 293, 634, 0, 0, 0, 0, 3, 637)
+"points": PackedVector2Array(0, 0, 0, 0, 83, 70, 0, 0, 0, 0, 140, 70, 0, 0, 0, 0, 144, 282, 0, 0, 0, 0, 214, 281, 0, 0, 0, 0, 215, 266, 0, 0, 0, 0, 301, 267, 0, 0, 0, 0, 301, 286, 0, 0, 0, 0, 434, 282, 0, 0, 0, 0, 432, 446, 0, 0, 0, 0, 584, 444, 0, 0, 0, 0, 610, 416, 0, 0, 0, 0, 641, 406, 0, 0, 0, 0, 670, 408, 0, 0, 0, 0, 696, 437, 0, 0, 0, 0, 794, 442, 0, 0, 0, 0, 795, 425, 0, 0, 0, 0, 841, 426, 0, 0, 0, 0, 843, 410, 0, 0, 0, 0, 893, 411, 0, 0, 0, 0, 893, 395, 0, 0, 0, 0, 926, 394, 0, 0, 0, 0, 950, 369, 0, 0, 0, 0, 983, 378, 0, 0, 0, 0, 1010, 379, 0, 0, 0, 0, 1064, 398, 0, 0, 0, 0, 1101, 425, 0, 0, 0, 0, 1124, 471, 0, 0, 0, 0, 1034, 473, 0, 0, 0, 0, 1034, 554, 0, 0, 0, 0, 724, 555, 0, 0, 0, 0, 697, 534, 0, 0, 0, 0, 669, 555, 0, 0, 0, 0, 338, 556, 0, 0, 0, 0, 314, 538, 0, 0, 0, 0, 290, 557, 0, 0, 0, 0, 293, 634, 0, 0, 0, 0, 3, 637)
 }
 point_count = 37
 
@@ -2122,7 +2123,10 @@ position = Vector2(1151, 47)
 scale = Vector2(1.55, 6.7)
 
 [node name="Bomb_Spawner" parent="." instance=ExtResource("7_bp0j2")]
-position = Vector2(49, 66)
+position = Vector2(77, 69)
+
+[node name="Cannon_Handler" parent="." instance=ExtResource("8_crl1f")]
+position = Vector2(43, 67)
 
 [node name="Bomb_Path" type="Node2D" parent="."]
 
@@ -2130,7 +2134,7 @@ position = Vector2(49, 66)
 curve = SubResource("Curve2D_a30i1")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Bomb_Path/Path2D"]
-position = Vector2(3.00159, 637)
+position = Vector2(3, 637)
 rotation = 3.13125
 progress = 2903.79
 

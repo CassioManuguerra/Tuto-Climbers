@@ -34,6 +34,7 @@ func _on_timer_timeout():
 	#spawns a bomb onto our path if there are no bombs available
 	if bomb_path.get_child_count() <= 0:
 		bomb_path.add_child(shoot())
+		Global.set_match = true
 	timer.start()
 	
 	

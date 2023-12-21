@@ -9,6 +9,9 @@ var is_bomb_moving = false
 var bomb_finished_exploding = true
 var freezeBomb = false
 
+#cannonhandler
+var set_match = false
+
 #height
 var jump_height = -80
 

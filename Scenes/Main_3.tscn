@@ -2173,7 +2173,7 @@ libraries = {
 }
 
 [node name="Bomb_Spawner" parent="." instance=ExtResource("8_4gtpf")]
-position = Vector2(176, 85)
+position = Vector2(199, 87)
 
 [node name="Walls" type="Node2D" parent="."]
 

@@ -100,7 +100,7 @@ script = ExtResource("1_qxbea")
 shape = SubResource("CircleShape2D_nqrvd")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.75
+wait_time = 0.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -5)
