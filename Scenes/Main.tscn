@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://bri1irxwhnjv5"]
+[gd_scene load_steps=19 format=3 uid="uid://bri1irxwhnjv5"]
 
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_syyrk"]
 [ext_resource type="PackedScene" uid="uid://cpugotsyfmb2f" path="res://Scenes/Player.tscn" id="1_w6akj"]
 [ext_resource type="PackedScene" uid="uid://bqvx5rpgpvhbh" path="res://Scenes/Ladder.tscn" id="1_xu81t"]
 [ext_resource type="Texture2D" uid="uid://1bdvd6pt2ktd" path="res://Assets/Kings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="2_n8u0f"]
@@ -8,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://wkrtrbiitwrd" path="res://Scenes/Bomb_Spawner.tscn" id="7_bp0j2"]
 [ext_resource type="PackedScene" uid="uid://chulc4uboihbs" path="res://Scenes/Wall.tscn" id="7_e4j8g"]
 [ext_resource type="PackedScene" uid="uid://ouu0hjcbmstu" path="res://Scenes/Cannon_Handler.tscn" id="8_crl1f"]
+[ext_resource type="Texture2D" uid="uid://w4upj72i84cg" path="res://Assets/rhey.png" id="10_kcbt4"]
+[ext_resource type="Texture2D" uid="uid://buxpbkjdxob0e" path="res://Assets/transp.png" id="11_l3prr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cy03r"]
 texture = ExtResource("2_n8u0f")
@@ -2018,6 +2021,20 @@ terrain_set_0/terrain_2/color = Color(0.14902, 0.482353, 1, 1)
 sources/0 = SubResource("TileSetAtlasSource_cy03r")
 sources/1 = SubResource("TileSetAtlasSource_mptxw")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_je0ie"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_kcbt4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_l3prr")
+}],
+"loop": true,
+"name": &"trigger",
+"speed": 9.0
+}]
+
 [sub_resource type="Curve2D" id="Curve2D_a30i1"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 83, 70, 0, 0, 0, 0, 140, 70, 0, 0, 0, 0, 144, 282, 0, 0, 0, 0, 214, 281, 0, 0, 0, 0, 215, 266, 0, 0, 0, 0, 301, 267, 0, 0, 0, 0, 301, 286, 0, 0, 0, 0, 434, 282, 0, 0, 0, 0, 432, 446, 0, 0, 0, 0, 584, 444, 0, 0, 0, 0, 610, 416, 0, 0, 0, 0, 641, 406, 0, 0, 0, 0, 670, 408, 0, 0, 0, 0, 696, 437, 0, 0, 0, 0, 794, 442, 0, 0, 0, 0, 795, 425, 0, 0, 0, 0, 841, 426, 0, 0, 0, 0, 843, 410, 0, 0, 0, 0, 893, 411, 0, 0, 0, 0, 893, 395, 0, 0, 0, 0, 926, 394, 0, 0, 0, 0, 950, 369, 0, 0, 0, 0, 983, 378, 0, 0, 0, 0, 1010, 379, 0, 0, 0, 0, 1064, 398, 0, 0, 0, 0, 1101, 425, 0, 0, 0, 0, 1124, 471, 0, 0, 0, 0, 1034, 473, 0, 0, 0, 0, 1034, 554, 0, 0, 0, 0, 724, 555, 0, 0, 0, 0, 697, 534, 0, 0, 0, 0, 669, 555, 0, 0, 0, 0, 338, 556, 0, 0, 0, 0, 314, 538, 0, 0, 0, 0, 290, 557, 0, 0, 0, 0, 293, 634, 0, 0, 0, 0, 3, 637)
@@ -2046,6 +2063,9 @@ _data = {
 }
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_syyrk")
+metadata/_edit_vertical_guides_ = [-13.0, -16.0, -18.0, 1168.0]
+metadata/_edit_horizontal_guides_ = [-12.0, -16.0, 672.0, 673.0]
 
 [node name="Background" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_j7los")
@@ -2128,6 +2148,18 @@ position = Vector2(77, 69)
 [node name="Cannon_Handler" parent="." instance=ExtResource("8_crl1f")]
 position = Vector2(43, 67)
 
+[node name="easterrrr" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="easterrrr"]
+
+[node name="easterrrr" type="AnimatedSprite2D" parent="easterrrr"]
+visible = false
+position = Vector2(562, 339)
+scale = Vector2(8.23404, 6.36)
+sprite_frames = SubResource("SpriteFrames_je0ie")
+animation = &"trigger"
+frame_progress = 0.970329
+
 [node name="Bomb_Path" type="Node2D" parent="."]
 
 [node name="Path2D" type="Path2D" parent="Bomb_Path"]
@@ -2142,3 +2174,5 @@ progress = 2903.79
 libraries = {
 "": SubResource("AnimationLibrary_jmf3g")
 }
+
+[connection signal="timeout" from="easterrrr/Timer" to="." method="_on_timer_timeout"]
